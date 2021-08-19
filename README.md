@@ -1,2 +1,3 @@
-## record some of my latex code
-### though has been using gitee wich works well in cn, but this site is the best
+# TexWorks style completions for sublime text (ST4) and vscode
+## ST4 completions are mainly based on LatexTools package
+## vscode completions are based on Latex-Workshop extension
