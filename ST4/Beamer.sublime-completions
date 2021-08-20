@@ -1,0 +1,15 @@
+{
+        "scope": "text.tex.latex",  // 有一个继续添加 .beamer 的scope，经测试即使beamer文档也无效，所以还用这个 scope
+
+        "completions":
+        [
+                // Beamer
+                { "trigger": "bco", "contents": "\\begin{columns}[c]\n\\begin{column}{$1cm}\n$2\n\\end{column}\n\\begin{column}{$3cm}\n$4\n\\end{column}\n\\end{columns}\n"},
+                { "trigger": "unc", "contents": "\\uncover<${1:+-}>{$2}"},
+                // { "trigger": "vis", "contents": "\\visible<${1:+-}>{$2}"},
+                { "trigger": "ons", "contents": "\\onslide<${1:+}->{$2}"},
+                { "trigger": "only", "contents": "\\only<${1:+-}>{$2}"},
+                { "trigger": "bfr", "contents": "\\begin{frame}\n$1\n\\end{frame}\n$0"},
+                { "trigger": "bft", "contents": "\\begin{frame}{$1}\n$2\n\\end{frame}\n$0"}, 
+        ]
+}
