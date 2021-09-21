@@ -7,9 +7,11 @@
                 { "trigger": "bco", "contents": "\\begin{columns}[c]\n\\begin{column}{$1cm}\n$2\n\\end{column}\n\\begin{column}{$3cm}\n$4\n\\end{column}\n\\end{columns}\n"},
                 { "trigger": "unc", "contents": "\\uncover<${1:+-}>{$2}"},
                 // { "trigger": "vis", "contents": "\\visible<${1:+-}>{$2}"},
-                { "trigger": "ons", "contents": "\\onslide<${1:+}->{$2}"},
+                { "trigger": "ons", "contents": "\\onslide<${1:+}->{%\n$2\n}%"},
                 { "trigger": "only", "contents": "\\only<${1:+-}>{$2}"},
-                { "trigger": "bfr", "contents": "\\begin{frame}\n$1\n\\end{frame}\n$0"},
-                { "trigger": "bft", "contents": "\\begin{frame}{$1}\n$2\n\\end{frame}\n$0"}, 
+                { "trigger": "bfr", "contents": "\\begin{frame}\n$1\n\\end{frame}\n%%"},
+                { "trigger": "bft", "contents": "\\begin{frame}{$1}\n$2\n\\end{frame}\n%%"}, 
+                { "trigger": "bbl", "contents": "\\begin{block}<+->{$1}\n$2\n\\end{block}\n$0"}, 
+                { "trigger": "stl", "contents": "\\setlength{\\abovedisplayskip}{${1:2}pt}%\n\\setlength{\\belowdisplayskip}{${2:0}pt}%$0"}, 
         ]
 }

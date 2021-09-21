@@ -1,0 +1,133 @@
+{
+        "scope": "text.tex.latex string.other.math, text.tex.latex meta.environment.math",
+
+        "completions":
+        [
+                // toggle the two! do not set parameters $1, $2, ...
+                // I have set in settings that charactrers do not support \\ in trigger
+		// { "trigger": "varepsilon", "contents": "\\epsilon" },
+                // { "trigger": "varphi", "contents": "\\phi" },
+                // { "trigger": "vartheta", "contents": "\\theta" },
+                // { "trigger": "xv", "contents": "\\digamma"},
+                { "trigger": "xa", "contents": "\\alpha", "annotation": "alpha"  },
+                { "trigger": "xb", "contents": "\\beta", "annotation": "beta" },
+                { "trigger": "xg", "contents": "\\gamma", "annotation": "gamma" },
+                { "trigger": "xd", "contents": "\\delta", "annotation": "delta" },
+		{ "trigger": "xe", "contents": "\\epsilon", "annotation": "epsilon" },
+		{ "trigger": "xve", "contents": "\\varepsilon", "annotation": "varepsilon" }, 
+		{ "trigger": "xz", "contents": "\\zeta","annotation": "zeta" },
+		{ "trigger": "xh", "contents": "\\eta", "annotation": "eta" },
+                { "trigger": "xq", "contents": "\\theta", "annotation": "theta" },
+                { "trigger": "xth", "contents": "\\theta", "annotation": "theta" },
+                { "trigger": "xvq", "contents": "\\vartheta", "annotation": "vartheta" },
+                { "trigger": "xi", "contents": "\\iota", "annotation": "iota" },
+                { "trigger": "xk", "contents": "\\kappa", "annotation": "kappa" },
+                { "trigger": "xl", "contents": "\\lambda", "annotation": "lambda" },
+                { "trigger": "xm", "contents": "\\mu", "annotation": "mu" },
+                { "trigger": "xn", "contents": "\\nu", "annotation": "nu" },
+                { "trigger": "xx", "contents": "\\xi", "annotation": "xi" },
+                { "trigger": "xp", "contents": "\\pi", "annotation": "pi" },
+                { "trigger": "xr", "contents": "\\rho", "annotation": "rho" },
+                { "trigger": "xs", "contents": "\\sigma", "annotation": "sigma" },
+                { "trigger": "xt", "contents": "\\tau", "annotation": "tau" },
+                { "trigger": "xu", "contents": "\\upsilon", "annotation": "upsilon" },        
+                { "trigger": "xf", "contents": "\\phi", "annotation": "phi" },
+                { "trigger": "xvf", "contents": "\\varphi", "annotation": "varphi" }, 
+                { "trigger": "xc", "contents": "\\chi", "annotation": "chi" },
+                { "trigger": "xy", "contents": "\\psi", "annotation": "psi" },
+		{"trigger": "xps", "contents": "\\psi", "annotation": "psi"},
+                { "trigger": "xo", "contents": "\\omega", "annotation": "omega" },
+                { "trigger": "xcd", "contents": "\\Delta", "annotation": "Detla" },
+                { "trigger": "xcf", "contents": "\\Phi", "annotation": "Phi" },
+                { "trigger": "xcg", "contents": "\\Gamma", "annotation": "Gamma" },
+                { "trigger": "xcl", "contents": "\\Lambda", "annotation": "Lambda" },
+                { "trigger": "xcp", "contents": "\\Pi", "annotation": "Pi" },
+		{ "trigger": "xcq", "contents": "\\Theta", "annotation": "Theta" },
+                { "trigger": "xcs", "contents": "\\Sigma", "annotation": "Sigma" },
+                { "trigger": "xco", "contents": "\\Omega", "annotation": "Omega" },
+                { "trigger": "xcx", "contents": "\\Xi", "annotation": "Xi" },
+                { "trigger": "xcy", "contents": "\\Psi", "annotation": "Psi" },
+                { "trigger": "nb", "contents": "\\nabla", "annotation": "nabla" },
+
+
+                // math symbols
+                { "trigger": "fa", "contents": "\\forall", "annotation": "forall symb" },
+                { "trigger": "pt", "contents": "\\partial", "annotation": "partial symb" },
+                // { "trigger": "ld", "contents": "\\ldots"},
+                { "trigger": "cd", "contents": "\\cdot", "annotation": "cdot" },
+                { "trigger": "cds", "contents": "\\cdots", "annotation": "cdots" },
+                { "trigger": "vds", "contents": "\\vdots", "annotation": "vdots" },
+        	{ "trigger": "inf", "contents": "\\infty", "annotation": "infinite" },
+
+
+                { "trigger": "ua", "contents": "\\uparrow", "annotation": "up arrow" },
+		{ "trigger": "da", "contents": "\\downarrow", "annotation": "down arrow" },
+                { "trigger": "la", "contents": "\\leftarrow", "annotation": "left arrow" },
+                { "trigger": "ra", "contents": "\\rightarrow", "annotation": "right arrow" },
+		{ "trigger": "lra", "contents": "\\leftrightarrow", "annotation": "l r arrow" },
+                { "trigger": "rca", "contents": "\\Rightarrow", "annotation": "Right arrow" },
+                { "trigger": "lca", "contents": "\\Leftarrow", "annotation": "Left arrow" },
+
+
+	        { "trigger": "in", "contents": "\\int \\! \\mathrm{d} ${1:x}$0", "annotation": "integral" },
+                { "trigger": "tcbhm", "contents": "\\tcbhighmath{ $1 }", "annotation": "tcbhighmath" },
+                { "trigger": "dis", "contents": "\\displaystyle{ $1 }", "annotation": "display style" },
+                // sm 暂时放到 keymap
+                // 求和的这个写法不能包括 } 进入选中，估计ST4版本问题，应为删除前{ 自动删除后 }
+                // { "trigger": "sm", "contents": "\\sum${1:_{}}${2:^{}}$0", "annotation": "sum" },
+                // 下面的写法可以把 } 包括进选中 https://forum.sublimetext.com/t/solved-snippets-is-it-possible-to-create-an-alternate-placeholder-for-selection/20246/3
+                // { "trigger": "sm", "contents": "\\sum${1:${SELECTION/^$_{/}/}}${2:${SELECTION/^$/^{}/}}$0", "annotation": "sum" },
+        	
+
+		{"trigger": "el", "contents": "\\ell", "annotation": "ell"},
+		{"trigger": "xth", "contents": "\\theta", "annotation": "theta"},
+		{"trigger": "cos", "contents": "\\cos", "annotation": "cosine"},
+		{"trigger": "sin", "contents": "\\sin", "annotation": "sine"},
+                { "trigger": "ht", "contents": "\\hat ", "annotation": "hat symb" },
+		{ "trigger": "pr", "contents": "\\prime", "annotation": "prime symb" },
+                { "trigger": "pht", "contents": "\\phantom{$1}$0", "annotation": "phantom snippet" },
+
+                { "trigger": "ovl", "contents": "\\overline{$1}$0", "annotation": "Overline" },
+                { "trigger": "mit", "contents": "\\mathit{$1}$0", "annotation": "Mathit" },
+                { "trigger": "mf", "contents": "\\mathbf{$1}$0", "annotation": "Mathbf" },
+                { "trigger": "mb", "contents": "\\mathbb{$1}$0", "annotation": "Mathbb" },
+                { "trigger": "mscr", "contents": "\\mathscr{$1}$0", "annotation": "Mathscr" },
+                { "trigger": "mr", "contents": "\\mathrm{$1}$0", "annotation": "Mathrm" },
+                { "trigger": "msf", "contents": "\\mathsf{$1}$0", "annotation": "Mathsf" },
+                { "trigger": "mc", "contents": "\\mathcal{$1}$0"},
+                { "trigger": "bm", "contents": "\\bm", "annotation": "bm" },
+                { "trigger": "dg", "contents": "\\dagger", "annotation": "dagger" },
+                { "trigger": "hb", "contents": "\\hbar", "annotation": "hbar" },
+                { "trigger": "mathcal", "contents": "\\mathcal{$1}$0", "annotation": "Mathcal" },
+                { "trigger": "br", "contents": "\\bra{$1}$0", "annotation": "bra" },
+                { "trigger": "kt", "contents": "\\ket{$1}$0", "annotation": "ket" },
+                { "trigger": "bk", "contents": "\\braket{$1|$1}$0", "annotation": "braket 1" },
+                { "trigger": "bkt", "contents": "\\braket{$1|$2}$0", "annotation": "braket 2" },
+                { "trigger": "kb", "contents": "\\ket{$1}\\!\\bra{$2}$0", "annotation": "ket bra" },
+                { "trigger": "kk", "contents": "\\big( ${1:$SELECTION} \\big) $0", "annotation": "l( r)" },
+                { "trigger": "zk", "contents": "\\big[ ${1:$TM_SELECTED_TEXT} \\big] $0", "annotation": "l[ r]" },
+                { "trigger": "dk", "contents": "\\big\\\\{ ${1:$SELECTION} \\big\\\\}$0", "annotation": "l{ r}" },
+                { "trigger": "fr", "contents": "\\frac{$1}{$2}$0", "annotation": "fraction" },
+                { "trigger": "dfr", "contents": "\\dfrac{$1}{$2}$0", "annotation": "dfrac" },
+                { "trigger": "sqr", "contents": "\\sqrt{$1}$0", "annotation": "square root" },
+                { "trigger": "stk", "contents": "\\stackrel{$1}{$2}$0", "annotation": "stackrel" },
+                { "trigger": "eqv", "contents": "\\equiv", "annotation": "equiv"},
+                { "trigger": "int", "contents": "\\int_{${1:}}^{$2} \\! \\mathrm{d}x$0", "annotation": "integral 2" },
+		{"trigger": "cmt", "contents": "[$1,\\ $2]$0", "annotation": "commutation"},
+                { "trigger": "vc", "contents": "\\vec ", "annotation": "vector" },
+                // substitude in keymap by ". ."
+                // { "trigger": "w", "contents": "\\text{$1}$0"},
+                { "trigger": "td", "contents": "\\tilde{$1}"},
+                { "trigger": "les", "contents": "\\leqslant"},
+                { "trigger": "ges", "contents": "\\geqslant"},
+                { "trigger": "tms", "contents": "\\times"},
+
+
+                // meta math environment
+                { "trigger": "bspl", "contents": "\\begin{split}\n${1:$SELECTION}\n\\end{split}\n$2", "annotation": "split subenv" },
+                { "trigger": "bald", "contents": "\\begin{aligned}\n${1:$SELECTION}\n\\end{aligned}\n$2", "annotation": "aligned subenv" },
+                { "trigger": "bgad", "contents": "\\begin{gathered}\n${1:$SELECTION}\n\\end{gathered}\n$2", "annotation": "gathered subenv" },
+		{"trigger": "bpm", "contents": "\\begin{pmatrix}\n $1 & $2 \\\\\\\\\n $3 & $4\n\\end{pmatrix}\n", "annotation": "pmatrix"},
+
+        ]
+}

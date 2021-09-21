@@ -1,0 +1,105 @@
+{
+//        "scope": "text.tex.latex - (string.other.math, meta.environment.math)",
+        "scope": "text.tex.latex",
+
+        "completions":
+        [       
+                // 下面编写的几句看起来重复的命令，是为避免自动补全出现 word-completions ，
+                // 规避的词有： begin item 
+                // { "trigger": "begin", "contents": "begin", "kind": "type" },
+                { "trigger": "begin", "contents": "\\begin{${1:$TM_SELECTED_TEXT}}\n$2\n\\end{$1}\n$0", "annotation": "begin2" },
+                { "trigger": "item", "contents": "\\item\n", "annotation": "single item" },
+                { "trigger": "it", "contents": "\\item\n", "annotation": "single item"},
+                { "trigger": "itt", "contents": "\\item[$1]\n$0", "annotation": "item[]"},
+                { "trigger": "item", "contents": "item", "kind": "type" },
+
+                // ST4中除 a b t 开头的不知为何不易生效，首字母改变下才行
+                // 已在key bindings 中设置了，参考 "v","b", "tab" 的设置
+                // 后来明白了设置里面 triggers 的规则，又改回来
+
+                // 这几个可能需要再次跳转回$1位置，所以结束用$2而非$0，用 Shift Tab 回跳
+                // 本来在key bindings 重设置，但key binding的内容不会自动提示
+                // 在设置里面添加 {"selector": "text.tex.latex", "characters": "abcdefghjklmnopqrstuvwy"}, 之后，这些字母开头的Latex shortcuts 都可以正常提示了
+                // 几个垂直或水平距离调整
+                // { "trigger": "vsk", "contents": "\\vskip 0.${1:2}cm$2", "annotation": "v skip" },
+                { "trigger": "vsp", "contents": "\\vskip 0.${1:2}cm$2", "annotation": "v skip" },
+                // { "trigger": "vskip", "contents": "vskip", "kind": "type" },
+                // { "trigger": "vsp", "contents": "\\vspace{-${1:2}mm}$2", "annotation": "v -space" },
+                { "trigger": "vsc", "contents": "\\vspace{-${1:2}mm}$2", "annotation": "v -space" },
+                // { "trigger": "vspace", "contents": "vspace", "kind": "type" },
+                // { "trigger": "hsk", "contents": "\\hskip ${1:3}cm$2", "annotation": "h skip" },
+                { "trigger": "hsp", "contents": "\\hskip ${1:3}cm$0", "annotation": "h skip2" },
+                // { "trigger": "hskip", "contents": "hskip", "kind": "type" },
+                // { "trigger": "hsp", "contents": "\\hspace{-${1:2}mm}$2", "annotation": "h -space" },
+                { "trigger": "hsc", "contents": "\\hspace{-${1:2}mm}$2", "annotation": "h -space" },
+                // { "trigger": "hspace", "contents": "hspace", "kind": "type" },
+                { "trigger": "eqref", "contents": "\\eqref{eq:$1}", "annotation": "eqref"},
+
+
+                // 章节命令调整
+                { "trigger": "se", "contents": "\\section{$1}$0", "annotation": "section"},
+                { "trigger": "section", "contents": "\\section{$1}$0", "annotation": "section"},
+                { "trigger": "section", "contents": "section", "kind": "type" },
+                { "trigger": "ss", "contents": "\\subsection{$1}$0", "annotation": "subsection"},
+                { "trigger": "subsection", "contents": "\\subsection{$1}$0", "annotation": "subsection"},
+                { "trigger": "subsection", "contents": "subsection", "kind": "type" },
+                { "trigger": "incgra", "contents": "\\includegraphics[scale=0.${1:4}]{$2}$0", "annotation": "graphics"},
+
+
+                // 下面是很少引起 word-completions 的命令
+                { "trigger": "em", "contents": "\\emph{$1}$0", "annotation": "text emphasize"},
+                { "trigger": "ud", "contents": "\\underline{$1}$0", "annotation": "underline"},
+                { "trigger": "us", "contents": "\\usepackage{$1}$0", "annotation": "usepackage"},
+                { "trigger": "tit", "contents": "\\textit{${1:$SELECTION}}$0"},
+                { "trigger": "tbf", "contents": "\\textbf{${1:$SELECTION}}$0", "annotation": "text bf" },
+                { "trigger": "tt", "contents": "\\texttt{${1:$SELECTION}}$0"},
+                { "trigger": "tc", "contents": "\\textcolor{${1:black}}{$2}$0", "annotation": "text color" },
+                { "trigger": "aler", "contents": "\\alert{${1:$TM_SELECTED_TEXT}}", "annotation": "alert" },
+                { "trigger": "ks", "contents": "\\keystroke{$1}$0", "annotation": "keystroke", "annotation": "keystroke" },
+
+               // { "trigger": "bs", "contents": "\\bigskip"},
+               // { "trigger": "ms", "contents": "\\medskip"},
+               // { "trigger": "ss", "contents": "\\smallskip"},
+
+        
+                { "trigger": "beq", "contents": "\\begin{equation${1:*}}\n$2\n\\end{equation${1:*}}$0"},              
+                // { "trigger": "beqn", "contents": "\\begin{equation}\n$0\n\\end{equation}\n"},
+                { "trigger": "bga", "contents": "\\begin{gather${1:*}}\n$2\n\\end{gather${1:*}}$0"},
+                // trigger:bal开头的环境可以循环 toggle，关键是align后紧跟$1，但ST4无效
+                // 多个 ${1:} 表达方式可同时编辑几个光标位置，${1:内容} 中，内容是被光标选中的，可以不填内容，只有光标
+                // 注意结束如果用 $0 ，则到此位置后无法用 Shift Tab 回跳
+                { "trigger": "bal", "contents": "\\begin{align*}\n${1:$SELECTION}\n\\end{align*}$0"},
+                { "trigger": "ba", "contents": "\\begin{align}\n$1\n\\end{align}$0"},
+                { "trigger": "baa", "contents": "\\begin{alignat${1:*}}{${2:2}}\n ${3:$SELECTION} & ${4:$SELECTION} &  ${5:$SELECTION} & ${6:$SELECTION} \\\\\\\\\n ${7:$SELECTION} & ${8:$SELECTION} &  ${9:$SELECTION} & ${10:$SELECTION} \n\\end{alignat${1:*}}$0"},
+                { "trigger": "bfl", "contents": "\\begin{flalign${1:*}}\n${2:$SELECTION}\n\\end{flalign${1:*}}$0"},
+                { "trigger": "bml", "contents": "\\begin{multline${1:*}}\n${2:$SELECTION}\n\\end{multline${1:*}}$0"},
+                { "trigger": "bcen", "contents": "\\begin{center}\n$1\n\\end{center}$0", "annotation": "subsection"},
+
+
+                // 几个自定义或elegantbook中的定理类环境或例题、注解类环境
+                { "trigger": "bnote", "contents": "\\begin{note}\n$1\n\\end{note}$0", "annotation": "笔记 env" },
+                { "trigger": "bexer", "contents": "\\begin{exercise}\n$1\n\\end{exercise}$0", "annotation": "例题 env" },
+                { "trigger": "bprob", "contents": "\\begin{problem}\n$1\n\\end{problem}$0", "annotation": "思考 env" },
+                { "trigger": "bremar", "contents": "\\begin{remark}\n$1\n\\end{remark}$0", "annotation": "注意 env" },
+                { "trigger": "bsolu", "contents": "\\begin{solution}\n$1\n\\end{solution}$0", "annotation": "解 env" },
+                { "trigger": "bass", "contents": "\\begin{assumption}\n$1\n\\end{assumption}$0", "annotation": "证 env" },
+                { "trigger": "bconcl", "contents": "\\begin{conclusion}\n$1\n\\end{conclusion}$0", "annotation": "结论 env" },
+                { "trigger": "bppos", "contents": "\\begin{emppos}{${1:showname}}{${2:label}}\n$3\n\\end{emppos}\n%thm:${2:label}$0", "annotation": "橙色 env" },
+                { "trigger": "bplem", "contents": "\\begin{emplem}{${1:showname}}{${2:label}}\n$3\n\\end{emplem}\n%lem:${2:label}$0", "annotation": "绿色 env" },
+                { "trigger": "bpdef", "contents": "\\begin{empdef}{${1:showname}}{${2:label}}\n$3\n\\end{empdef}\n%def:${2:label}$0", "annotation": "蓝色 env" },
+                { "trigger": "bmpos", "contents": "\\begin{mypos}{${1:showname}}{${2:label}}\n$3\n\\end{mypos}\n%pos:${2:label}$0", "annotation": "公设 env" },
+                { "trigger": "bmlem", "contents": "\\begin{mylem}{${1:showname}}{${2:label}}\n$3\n\\end{mylem}\n%lem:${2:label}$0", "annotation": "原理 env" },
+                { "trigger": "bmdef", "contents": "\\begin{mydef}{${1:showname}}{${2:label}}\n$3\n\\end{mydef}\n%def:${2:label}$0", "annotation": "概念 env" },
+
+
+                { "trigger": "bve", "contents": "\\begin{verbatim}\n$1\n\\end{verbatim}\n$0", "annotation": "verbatim env" },
+                { "trigger": "bit", "contents": "\\begin{itemize}${1:[<+->]}\n\\item\n${2:$SELECTION}\n\\item\n$3\n\\end{itemize}\n$0", "annotation": "itemize env" },
+                { "trigger": "ben", "contents": "\\begin{enumerate}${1:[<+->]}\n\t\\item\n\t${2:$SELECTION}\n\t\\item\n\t$0\n\\end{enumerate}\n", "annotation": "enumerate env" },
+                { "trigger": "bde", "contents": "\\begin{description}\n\t\\item[${1:}]\n\t$2\n\t\\item[${1:}]\n\t$0\n\\end{description}\n$0", "annotation": "description env" },
+                { "trigger": "lb", "contents": "\\label{$1:$2}$0", "annotation": "add label" },
+                { "trigger": "n", "contents": "& $0", "annotation": "&" },
+                { "trigger": "qd", "contents": "\\quad", "annotation": "2 spaces" },
+                { "trigger": "qqd", "contents": "\\qquad", "annotation": "4 spaces" },
+
+        ]
+}
